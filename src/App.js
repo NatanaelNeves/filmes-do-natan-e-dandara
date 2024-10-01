@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import axios from 'axios';
+import SearchMovies from './components/SearchMovies';
+import WatchedMovies from './components/WatchedMovies';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [watchedMovies, setWatchedMovies] = useState([]);
+
+  const handleAddMovie = async (movie) => {
+    const rating = prompt("Avalie o filme com uma nota de 1 a 5:");
+    const watchedDate = new Date();
+    const response = await axios.post('/api/add-watched', { movie, rating, watchedDate });
+    setWatchedMovies([...watchedMovies, response.data]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Filmes do Natan e Dandara</h1>
+      <SearchMovies onAddMovie={handleAddMovie} />
+      <WatchedMovies />
     </div>
   );
-}
+};
 
 export default App;
