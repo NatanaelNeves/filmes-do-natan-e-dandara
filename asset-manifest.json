@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/NatanaelNeves.github.io/filmes-do-natan-e-dandara/static/css/main.6fa2ad16.css",
+    "main.js": "/NatanaelNeves.github.io/filmes-do-natan-e-dandara/static/js/main.485022bd.js",
+    "static/js/453.e17a592f.chunk.js": "/NatanaelNeves.github.io/filmes-do-natan-e-dandara/static/js/453.e17a592f.chunk.js",
+    "index.html": "/NatanaelNeves.github.io/filmes-do-natan-e-dandara/index.html",
+    "main.6fa2ad16.css.map": "/NatanaelNeves.github.io/filmes-do-natan-e-dandara/static/css/main.6fa2ad16.css.map",
+    "main.485022bd.js.map": "/NatanaelNeves.github.io/filmes-do-natan-e-dandara/static/js/main.485022bd.js.map",
+    "453.e17a592f.chunk.js.map": "/NatanaelNeves.github.io/filmes-do-natan-e-dandara/static/js/453.e17a592f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6fa2ad16.css",
+    "static/js/main.485022bd.js"
+  ]
+}
