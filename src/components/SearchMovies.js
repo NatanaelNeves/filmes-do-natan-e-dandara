@@ -4,13 +4,17 @@ import axios from 'axios';
 const SearchMovies = ({ onAddMovie }) => {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
+  const [error, setError] = useState(null);
 
   const handleSearch = async () => {
     try {
-      const response = await axios.get(`/api/search-movie?query=${query}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/search-movie`, {
+        params: { query } // Adicionei query para enviar a pesquisa
+      });
       setMovies(response.data.results);
     } catch (error) {
       console.error('Erro ao buscar filmes:', error);
+      setError('Erro ao buscar filmes');
     }
   };
 
@@ -23,6 +27,7 @@ const SearchMovies = ({ onAddMovie }) => {
         placeholder="Pesquisar filmes"
       />
       <button onClick={handleSearch}>Buscar</button>
+      {error && <p>{error}</p>}
       <div>
         {movies.map((movie) => (
           <div key={movie.id}>
@@ -37,5 +42,6 @@ const SearchMovies = ({ onAddMovie }) => {
 };
 
 export default SearchMovies;
+
 
 

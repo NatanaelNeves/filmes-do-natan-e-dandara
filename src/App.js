@@ -9,9 +9,18 @@ const App = () => {
 
   const handleAddMovie = async (movie) => {
     const rating = prompt("Avalie o filme com uma nota de 1 a 5:");
-    const watchedDate = new Date();
-    const response = await axios.post('/api/add-watched', { movie, rating, watchedDate });
-    setWatchedMovies([...watchedMovies, response.data]);
+    const watchedDate = prompt("Insira a data que você assistiu o filme (ex: 2024-10-02):");
+    
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/add-watched`, { 
+        movie, 
+        rating, 
+        watchedDate 
+      });
+      setWatchedMovies([...watchedMovies, response.data]);
+    } catch (error) {
+      console.error("Erro ao adicionar filme assistido:", error);
+    }
   };
 
   return (
@@ -24,3 +33,4 @@ const App = () => {
 };
 
 export default App;
+

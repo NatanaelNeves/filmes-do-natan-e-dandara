@@ -6,8 +6,12 @@ const WatchedMovies = () => {
 
   useEffect(() => {
     const fetchWatchedMovies = async () => {
-      const response = await axios.get('/api/watched-movies');
-      setWatchedMovies(response.data);
+      try {
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/watched-movies`);
+        setWatchedMovies(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar filmes assistidos:', error);
+      }
     };
     fetchWatchedMovies();
   }, []);
@@ -30,3 +34,4 @@ const WatchedMovies = () => {
 };
 
 export default WatchedMovies;
+
