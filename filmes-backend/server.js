@@ -2,6 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const axios = require('axios');
 
+const cors = require('cors');
+
+app.use(cors());
+
 // Inicializa o app
 const app = express();
 
