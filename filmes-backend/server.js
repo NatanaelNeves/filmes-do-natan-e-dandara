@@ -4,12 +4,21 @@ const axios = require('axios');
 
 const cors = require('cors');
 
-app.use(cors());
 
 // Inicializa o app
 const app = express();
 
 app.use(express.json()); // Para o app entender requisições com JSON
+
+app.use(cors(
+  {
+    origin: 'https://filmes-do-natan-e-dandara.vercel.app',
+    methods: 'GET,POST',
+    optionsSuccessStatus: 200
+  }
+));
+
+
 
 // Conexão com MongoDB (Certifique-se de que as credenciais e a string de conexão estão corretas)
 mongoose.connect('mongodb+srv://natanaelnevesalves:20012003n@sitefilme.dfgdz.mongodb.net/?retryWrites=true&w=majority&appName=sitefilme', {

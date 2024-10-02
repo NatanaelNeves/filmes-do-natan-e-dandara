@@ -7,14 +7,13 @@ const SearchMovies = ({ onAddMovie }) => {
   const [error, setError] = useState(null);
 
   const handleSearch = async () => {
+    console.log('API URL:', process.env.REACT_APP_API_URL); // Verifica se a URL está correta
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/search-movie`, {
-        params: { query } // Adicionei query para enviar a pesquisa
-      });
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/search-movie?query=${query}`);
       setMovies(response.data.results);
     } catch (error) {
       console.error('Erro ao buscar filmes:', error);
-      setError('Erro ao buscar filmes');
+      setError('Erro ao buscar filmes. Tente novamente.');
     }
   };
 
