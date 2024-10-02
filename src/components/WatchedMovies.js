@@ -20,6 +20,7 @@ const WatchedMovies = () => {
           <div key={movie._id}>
             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
             <h3>{movie.title}</h3>
+            <h4>Assistido em: {new Date(movie.watchedDate).toLocaleDateString()}</h4>
             <h4>Nota: {movie.rating}</h4>
           </div>
         ))}

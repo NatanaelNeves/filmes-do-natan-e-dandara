@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json()); // Para o app entender requisições com JSON
 
 // Conecte ao MongoDB
-mongoose.connect('mongodb://localhost:27017/filmes', {
+mongoose.connect('mongodb+srv://natanaelnevesalves:20012003n@sitefilme.dfgdz.mongodb.net/?retryWrites=true&w=majority&appName=sitefilme', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
