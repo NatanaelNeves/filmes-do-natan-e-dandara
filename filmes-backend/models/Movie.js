@@ -1,14 +1,34 @@
 const mongoose = require('mongoose');
 
-const movieSchema = new mongoose.Schema({
-  title: String,
-  poster_path: String,
-  rating: Number, // Nota do filme
-  review: String, // Avaliação do filme
-  watchedDate: Date, // Data em que o filme foi assistido
-  watched: Boolean,
+// Define a estrutura do modelo de filme
+const MovieSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true, // Título é obrigatório
+  },
+  poster_path: {
+    type: String,
+    required: true, // Caminho do pôster é obrigatório
+  },
+  rating: {
+    type: Number,
+    min: 1,
+    max: 5, // Avaliação entre 1 e 5
+  },
+  review: {
+    type: String,
+    default: '', // Avaliação/opinião opcional
+  },
+  watchedDate: {
+    type: Date,
+    default: Date.now, // Data padrão é a data atual
+  },
+  watched: {
+    type: Boolean,
+    default: false, // Indica se o filme foi assistido ou não
+  },
 });
 
-const Movie = mongoose.model('Movie', movieSchema);
+// Cria e exporta o modelo Movie
+module.exports = mongoose.model('Movie', MovieSchema);
 
-module.exports = Movie;
