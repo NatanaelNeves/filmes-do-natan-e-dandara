@@ -7,7 +7,7 @@ const WatchedMovies = () => {
   useEffect(() => {
     const fetchWatchedMovies = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/watched-movies`);
+        const response = await axios.get('https://filmes-do-natan-e-dandara.onrender.com/api/watched-movies');
         setWatchedMovies(response.data);
       } catch (error) {
         console.error('Erro ao buscar filmes assistidos:', error);

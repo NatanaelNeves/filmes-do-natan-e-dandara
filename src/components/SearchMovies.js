@@ -9,7 +9,8 @@ const SearchMovies = ({ onAddMovie }) => {
   const handleSearch = async () => {
     console.log('API URL:', process.env.REACT_APP_API_URL); // Verifica se a URL está correta
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/search-movie?query=${query}`);
+      const response = await axios.get(`https://filmes-do-natan-e-dandara.onrender.com/api/search-movie?query=${query}`);
+      
       setMovies(response.data.results);
     } catch (error) {
       console.error('Erro ao buscar filmes:', error);
